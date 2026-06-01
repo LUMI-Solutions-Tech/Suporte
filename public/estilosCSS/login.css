@@ -1,0 +1,167 @@
+.cabecalho-cadastro {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 6px 12px;
+    border: none;
+}
+
+.container-cadastro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 5px;
+    gap: 10%;
+    min-height: 80vh;
+}
+
+.img-cadastro {
+    height: auto;
+    width: 24%;
+}
+
+.inputsCadastro {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+.topo-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.boasvindas-text {
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.toggle-botoes {
+    display: flex;
+    background-color: rgba(0, 146, 54, 0.43);
+    border-radius: 25px;
+    padding: 10px;
+    width: 60%;
+    justify-content: space-between;
+}
+
+.btn-toggle {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 12px 0;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.btn-toggle.active {
+    background-color: #009236;
+    color: white;
+}
+
+.toggle-link a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+}
+
+.title-cadastro {
+    font-size: 40px;
+    margin: 5px 0
+}
+
+.text-cadastro {
+    color: #79747E;
+    margin-bottom: 40px;
+    font-size: 16px;
+}
+
+.cadastro-nome div,
+.cadastro-email div {
+    width: 100%;
+}
+
+.cadastro-nome,
+.cadastro-email {
+    display: flex;
+    gap: 20px;
+}
+
+.grupo-input {
+    position: relative;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.grupo-input label {
+    position: absolute;
+    top: -8px;
+    left: 12px;
+    background-color: #fff; /* mesma cor do fundo */
+    padding: 0 5px;
+    font-size: 16px;
+    color: #070707;
+}
+
+.text-input{
+    margin-bottom: 6px;
+    display: block;
+}
+
+.ipt_cadastro,
+.ipt_cadastroSenha {
+    border: 1px solid #79747E;
+    border-radius: 4px;
+    padding: 12px 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.ipt_cadastro {
+    padding: 14px 12px;
+    border: 1px solid #79747E;
+    border-radius: 4px;
+}
+
+.btn-cadastro {
+    width: 100%;
+    padding: 16px 16px;
+    background-color: #009236;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: 600;
+}  
+
+.btn-cadastro:hover {
+    background-color: #15a449;
+}
+
+.msgCadastro{
+    text-align: center;
+}
+
+.msgLoginLink {
+    text-decoration: none;
+}
+
+span {
+    color: #009236;
+    font-weight: 600;
+}
+
+.msg-sucesso-cadastro{
+    text-align: center;
+}
+
+#msgSenha {
+    font-size: 14px;
+    margin-top: -20px;
+    margin-bottom: 20px;
+    color: #79747E;
+}
