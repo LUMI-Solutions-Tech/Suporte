@@ -16,8 +16,8 @@ const chatIA = new GoogleGenAI({ apiKey: process.env.MINHA_CHAVE });
 // configurando o servidor para receber requisições JSON
 app.use(express.json());
 
-// configurando o servidor para servir arquivos estáticos
-app.use(express.static(path.join(__dirname, "public")));
+// configurando o servidor para servir arquivos estáticos da raiz do projeto
+app.use(express.static(path.join(__dirname)));
 
 // configurando CORS
 app.use((req, res, next) => {
@@ -31,15 +31,15 @@ app.listen(PORTA_SERVIDOR, () => {
     console.info(
         `
         ######                ###    #    
-        #     #  ####  #####   #    # #   
+        #     #  ####  #####   #    # #  
         #     # #    # #    #  #   #   #  
-        ######  #    # #####   #  #     # 
-        #     # #    # #    #  #  ####### 
-        #     # #    # #    #  #  #     # 
-        ######   ####  #####  ### #     # 
+        ######  #    # #####   #  #     #
+        #     # #    # #    #  #  #######
+        #     # #    # #    #  #  #     #
+        ######   ####  #####  ### #     #
         `
     );
-    console.info(`A API BobIA iniciada, acesse http://localhost:${PORTA_SERVIDOR}`);
+    console.info(`Servidor iniciado, acesse http://localhost:${PORTA_SERVIDOR}`);
 });
 
 // rota para receber perguntas e gerar respostas
@@ -52,18 +52,15 @@ app.post("/perguntar", async (req, res) => {
     } catch (error) {
         res.status(500).json({ error: 'Erro interno do servidor' });
     }
-
 });
 
 // função para gerar respostas usando o gemini
 async function gerarResposta(mensagem) {
 
     try {
-        // gerando conteúdo com base na pergunta
         const modeloIA = chatIA.models.generateContent({
             model: "gemini-2.5-flash",
             contents: `Em um paragráfo responda: ${mensagem}`
-
         });
         const resposta = (await modeloIA).text;
         const tokens = (await modeloIA).usageMetadata;
