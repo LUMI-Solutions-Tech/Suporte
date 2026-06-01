@@ -9,12 +9,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="estilosCSS/login.css">
+    <link rel="stylesheet" href="estilosCSS/cabecalho.css">
 </head>
 <body>
     <header id="home">
         <div class="cabecalho-menu">
             <div class="logo-container">
-                <img src="./assets/imagens/icons/logo.svg" alt="Logo Lumi Solutions" class="img-logo">
+                <img src="./imagens/logo.svg" alt="Logo Lumi Solutions" class="img-logo">
                 <p class="nome-logo">Lumi Solutions Tech</p>
             </div>
             <div class="menu">
@@ -24,21 +25,15 @@
     </header>
     <section>
         <div class="container-cadastro">
-            <img src="./assets/imagens/login-cadastro/alface-tela-login.svg" alt="Plantação de alfaces" class="img-cadastro">
+            <img src="./imagens/suporte_alface.png" alt="Service Desk de alface" class="img-login">
             <div class="inputsCadastro">
                 <div class="topo-login">
                     <p class="boasvindas-text">Bem vindo ao <strong>LUMI</strong></p>
                     <div class="toggle-botoes">
-                        <button class="btn-toggle active toggle-link">
-                            <a href="login.html">Login</a>
-                        </button>
-                        <button class="btn-toggle toggle-link">
-                            <a href="cadastro.html">Cadastrar</a>
-                        </button>
                     </div>
                 </div>
                 <h2 class="title-cadastro">Login</h2>
-                <p class="text-cadastro">Faça o login com sua conta Lumi</p>
+                <p class="text-cadastro">Faça o login com sua conta de Suporte</p>
                 <div class="cadastro-email">
                     <div class="grupo-input">
                         <input type="text" id="ipt_email" class="ipt_cadastro" placeholder="">
@@ -49,14 +44,8 @@
                     <input type="password" id="ipt_senha" class="ipt_cadastroSenha" placeholder="">
                     <label>Senha</label>
                 </div>
-                <button onclick="entrar()" class="btn-cadastro">Login</button>
+                <button onclick="entrar()" class="btn-login">Login</button>
                 <br><br>
-                <p class="msgCadastro">
-                    Não tem uma conta?
-                    <a class="msgLoginLink" href="cadastro.html">
-                        <span>Cadastre-se</span>
-                    </a>
-                </p>
                 <div class="alerta_erro">
                     <div class="card_erro" id="cardErro">
                         <span id="mensagem_erro"></span>

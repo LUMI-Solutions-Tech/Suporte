@@ -15,9 +15,10 @@
     min-height: 80vh;
 }
 
-.img-cadastro {
+.img-login {
+    display: block;
+    width: 34%;
     height: auto;
-    width: 24%;
 }
 
 .inputsCadastro {
@@ -128,7 +129,7 @@
     border-radius: 4px;
 }
 
-.btn-cadastro {
+.btn-login {
     width: 100%;
     padding: 16px 16px;
     background-color: #009236;
@@ -136,10 +137,12 @@
     border-radius: 4px;
     color: #fff;
     font-weight: 600;
+    transition: background-color 0.3s ease;
 }  
 
-.btn-cadastro:hover {
+.btn-login:hover {
     background-color: #15a449;
+    transform: translateY(-1px);
 }
 
 .msgCadastro{

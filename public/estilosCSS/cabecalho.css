@@ -1,0 +1,65 @@
+body {
+    font-family: "Poppins", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+}
+
+#home {
+    background-color: #f3f3f3;
+}
+
+.cabecalho-menu {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 6px 12px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 40%;
+}
+
+.img-logo {
+    width: 10%;
+}
+
+.nome-logo {
+    font-weight: 600;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 45%;
+}
+
+.opcoes-menu {
+    text-align: center;
+    font-weight: 600;
+    text-decoration: none;
+    color: #000;
+}
+
+.opcoes-menu:hover {
+    color: #009236;
+}
+
+.login {
+    background-color: #009236;
+    color: #fff;
+    border-radius: 8px;
+    padding: 8px 16px;
+    width: 10%;
+}
+
+.login:hover {
+    background-color: beige;
+    color: #009236;
+    border: 2px solid #009236;
+}
