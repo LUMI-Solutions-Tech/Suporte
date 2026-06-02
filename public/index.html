@@ -3,40 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BobIA</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Suporte | Lumi Solutions</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilosCSS/suporte_equipe.css">
+    <link rel="stylesheet" href="estilosCSS/cabecalho.css">
 </head>
 <body>
 
-    <div id="container">
-        <h1>BobIA</h1>
-        <textarea id="pergunta" type="text" placeholder="Digite a pergunta..."></textarea>
-        <br><br>
-        <button onclick="gerarResposta()">Gerar Resposta</button>
-        <h3>Resposta da IA:</h3>
-        <div id="resposta"></div>
+    <header id="home">
+        <div class="cabecalho-menu">
+            <div class="logo-container">
+                <img src="./imagens/logo.svg" alt="Logo Lumi Solutions" class="img-logo">
+                <p class="nome-logo">Lumi Solutions Tech</p>
+            </div>
+             <div class="menu">
+                <a href="login.html">Login</a>
+            </div>
+        </div>
+    </header>
+
+     <div class="hero-suporte">
+        <img src="./imagens/suporte_ti.webp" alt="Imagem topo Sobre Nós" class="img-hero-suporte">
+        <h2 class="titulo-hero-suporte">Suporte-Equipe</h2>
+    </div>  
+
+    <!-- BOTÃO FLUTUANTE -->
+    <button id="btn-bob" onclick="toggleChat()" title="Falar com BobIA">
+        BobIA
+    </button>
+
+    <!-- MINICHAT -->
+    <div id="minichat">
+        <div class="chat-header">
+            <h1>BobIA</h1>
+            <button onclick="toggleChat()">✕</button>
+        </div>
+
+        <div class="chat-mensagens" id="chat-mensagens">
+            <div class="msg-bob-wrapper">
+                <span class="msg-bob-label">BobIA</span>
+                <div class="msg-bob">Olá! Como posso te ajudar hoje?</div>
+            </div>
+        </div>
+
+        <div class="chat-input">
+            <input type="text" id="ipt-mensagem" placeholder="Digite a pergunta..." onkeydown="teclaEnter(event)">
+            <button onclick="enviarMensagem()">Enviar</button>
+        </div>
     </div>
 
     <script>
-        
-        async function gerarResposta() {
-            const pergunta = document.getElementById('pergunta').value;
+        var URL_BOB = '/perguntar';
 
-            const response = await fetch('/perguntar', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ pergunta })
-            });
-
-            const data = await response.json();
-
-            resposta.style.display = 'block';
-            document.getElementById('resposta').innerText = data.resultado;
+        function toggleChat() {
+            var chat = document.getElementById('minichat');
+            chat.classList.toggle('aberto');
+            if (chat.classList.contains('aberto')) {
+                document.getElementById('ipt-mensagem').focus();
+            }
         }
 
+        function teclaEnter(event) {
+            if (event.key === 'Enter') enviarMensagem();
+        }
+
+        async function enviarMensagem() {
+            var input = document.getElementById('ipt-mensagem');
+            var mensagem = input.value.trim();
+            if (!mensagem) return;
+
+            adicionarMsgUsuario(mensagem);
+            input.value = '';
+
+            var carregando = adicionarCarregando();
+
+            try {
+                var response = await fetch(URL_BOB, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ pergunta: mensagem })
+                });
+
+                var data = await response.json();
+                carregando.remove();
+                adicionarMsgBob(data.resultado);
+            } catch (erro) {
+                carregando.remove();
+                adicionarMsgBob('Erro ao conectar com o BobIA. Verifique se o servidor está rodando.');
+            }
+        }
+
+        function adicionarMsgUsuario(texto) {
+            var container = document.getElementById('chat-mensagens');
+            var div = document.createElement('div');
+            div.className = 'msg-usuario';
+            div.innerText = texto;
+            container.appendChild(div);
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function adicionarMsgBob(texto) {
+            var container = document.getElementById('chat-mensagens');
+            var wrapper = document.createElement('div');
+            wrapper.className = 'msg-bob-wrapper';
+            wrapper.innerHTML = '<span class="msg-bob-label">BobIA</span><div class="msg-bob">' + texto + '</div>';
+            container.appendChild(wrapper);
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function adicionarCarregando() {
+            var container = document.getElementById('chat-mensagens');
+            var div = document.createElement('div');
+            div.className = 'msg-carregando';
+            div.innerText = 'BobIA está digitando...';
+            container.appendChild(div);
+            container.scrollTop = container.scrollHeight;
+            return div;
+        }
     </script>
-    
+
 </body>
 </html>

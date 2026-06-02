@@ -16,15 +16,8 @@ const chatIA = new GoogleGenAI({ apiKey: process.env.MINHA_CHAVE });
 // configurando o servidor para receber requisições JSON
 app.use(express.json());
 
-// configurando o servidor para servir arquivos estáticos da raiz do projeto
-app.use(express.static(path.join(__dirname)));
+app.use(express.static(path.join(__dirname, 'public')));
 
-// configurando CORS
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Origin, Content-Type, Accept');
-    next();
-});
 
 // inicializando o servidor
 app.listen(PORTA_SERVIDOR, () => {
@@ -58,12 +51,12 @@ app.post("/perguntar", async (req, res) => {
 async function gerarResposta(mensagem) {
 
     try {
-        const modeloIA = chatIA.models.generateContent({
+        const modeloIA = await chatIA.models.generateContent({
             model: "gemini-2.5-flash",
             contents: `Em um paragráfo responda: ${mensagem}`
         });
-        const resposta = (await modeloIA).text;
-        const tokens = (await modeloIA).usageMetadata;
+        const resposta = modeloIA.text;
+        const tokens = modeloIA.usageMetadata;
 
         console.log(resposta);
         console.log("Uso de Tokens:", tokens);
