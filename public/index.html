@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +8,12 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="estilosCSS/suporte_equipe.css">
     <link rel="stylesheet" href="estilosCSS/cabecalho.css">
 </head>
+
 <body>
 
     <header id="home">
@@ -19,16 +22,16 @@
                 <img src="./imagens/logo.svg" alt="Logo Lumi Solutions" class="img-logo">
                 <p class="nome-logo">Lumi Solutions Tech</p>
             </div>
-             <div class="menu">
+            <div class="menu">
                 <a href="login.html">Login</a>
             </div>
         </div>
     </header>
 
-     <div class="hero-suporte">
+    <div class="hero-suporte">
         <img src="./imagens/suporte_ti.webp" alt="Imagem topo Sobre Nós" class="img-hero-suporte">
-        <h2 class="titulo-hero-suporte">Suporte-Equipe</h2>
-    </div>  
+        <h2 class="titulo-hero-suporte">Central de Atendimento Técnico</h2>
+    </div>
 
     <!-- BOTÃO FLUTUANTE -->
     <button id="btn-bob" onclick="toggleChat()" title="Falar com BobIA">
@@ -53,6 +56,23 @@
             <input type="text" id="ipt-mensagem" placeholder="Digite a pergunta..." onkeydown="teclaEnter(event)">
             <button onclick="enviarMensagem()">Enviar</button>
         </div>
+    </div>
+    <div class="suporte-conteudo">
+        <h1>Manual de Instalação e Suporte N3</h1>
+        <p>Neste espaço, você encontrará recursos importantes para apoiar suas atividades de suporte.
+            Logo abaixo, está disponível o link para download do Manual de Instalação, contendo orientações,
+            procedimentos e informações necessárias para a correta configuração e utilização da solução.<br><br>
+            Além disso, em casos de dúvidas, incidentes ou cenários mais complexos, utilize o BobIA como suporte de
+            Nível 3 (N3). O BobIA foi desenvolvido para auxiliar na análise de problemas avançados, fornecer orientações
+            técnicas, apoiar investigações e agilizar a identificação de possíveis soluções, servindo como um recurso
+            complementar para a equipe de suporte.<br><br>
+            Acesse o manual através do link disponível logo abaixo e conte com o BobIA sempre que precisar de apoio
+            técnico especializado.
+        </p>
+        <a class="botao-download" href="./manual_instalacao/Manual_de_Instalacao.pdf" download>
+            Download do Manual de Instalação
+        </a>
+    </div>
     </div>
 
     <script>
@@ -126,4 +146,5 @@
     </script>
 
 </body>
+
 </html>
