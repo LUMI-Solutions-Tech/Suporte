@@ -73,6 +73,10 @@
     </div>
 
     <script>
+        if (!sessionStorage.getItem('LUMI_AUTENTICADO')) {
+            window.location.href = './login.html';
+        }
+
         var URL_BOB = '/perguntar';
 
         function toggleChat() {
