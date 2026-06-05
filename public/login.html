@@ -18,9 +18,6 @@
                 <img src="./imagens/logo.svg" alt="Logo Lumi Solutions" class="img-logo">
                 <p class="nome-logo">Lumi Solutions Tech</p>
             </div>
-            <div class="menu">
-                <a href="index.html">Suporte</a>
-            </div>
         </div>
     </header>
     <section>
@@ -59,84 +56,27 @@
 </html>
 
 <script>
-    let tentativas = 3;
-
     function entrar() {
-        aguardar();
+     
         let emailVar = ipt_email.value.trim();
         let senhaVar = ipt_senha.value.trim();
-        let erros = '';
-
-        if (emailVar == '') {
-            erros += `Informe o seu e-mail / `;
-        } else if (!emailVar.includes('@')) {
-            erros += `Insira um e-mail válido / `;
-        }
-
-        if (senhaVar == '') {
-            erros += `Informe sua senha / `;
-        }
-
-        if (erros != '') {
-            cardErro.style.display = "block";
-            mensagem_erro.innerHTML = erros;
-            finalizarAguardar();
-            setInterval(sumirMensagem, 5000);
-            return false;
-        }
 
         console.log("FORM LOGIN: ", emailVar);
         console.log("FORM SENHA: ", senhaVar);
 
-        fetch("/usuarios/autenticar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                emailServer: emailVar,
-                senhaServer: senhaVar
-            })
-        })
-        .then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!");
-            if (resposta.ok) {
-                console.log(resposta);
-                resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.idUsuario;
-                    sessionStorage.FK_EMPRESA = json.fkUsuarioEmpresa;
-                    alert(`Login efetuado com sucesso!`);
-                    setTimeout(function () {
-                        window.location = "./dashboard/dashboard.html";
-                    }, 1000);
-                });
-            } else {
-                tentativas--;
-                if (tentativas > 0) {
-                    cardErro.style.display = "block";
-                    mensagem_erro.innerHTML = `Erro no login, email ou senha incorretos, restam ${tentativas} tentativa(s)`;
-                } else {
-                    cardErro.style.display = "block";
-                    mensagem_erro.innerHTML = `Usuário bloqueado!`;
-                }
-                resposta.text().then(texto => {
-                    console.error(texto);
-                    finalizarAguardar(texto);
-                });
-            }
-        })
-        .catch(function (erro) {
-            console.log(erro);
-        });
+        if (emailVar === 'admin@gmail.com' && senhaVar === 'adm123') {
+            
+            alert('Login efetuado com sucesso!');
+
+            // Redireciona para o suporte após 1,5 segundos
+            setTimeout(function () {
+                window.location = "./index.html";
+            }, 1500);
+
+        } else {
+            alert('Usuário ou senha inválidos');
+        }
 
         return false;
-    }
-
-    function sumirMensagem() {
-        cardErro.style.display = "none";
     }
 </script>

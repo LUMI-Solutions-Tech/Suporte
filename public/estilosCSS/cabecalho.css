@@ -1,52 +1,58 @@
 body {
     font-family: "Poppins", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 #home {
     background-color: #f3f3f3;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .cabecalho-menu {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between; 
     align-items: center;
-    padding: 6px 12px;
+    padding: 10px 40px; 
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .logo-container {
     display: flex;
     align-items: center;
-    gap: 15px;
-    width: 40%;
+    gap: 12px;
 }
 
 .img-logo {
-    width: 10%;
+    height: 40px; 
+    width: auto;
 }
 
 .nome-logo {
     font-weight: 600;
+    margin: 0;
+    font-size: 18px;
+    color: #333;
 }
 
 .menu {
     display: flex;
     align-items: center;
     gap: 20px;
-    width: 45%;
 }
 
-.opcoes-menu {
+.menu a {
     text-align: center;
     font-weight: 600;
     text-decoration: none;
     color: #000;
+    transition: color 0.2s ease;
 }
 
-.opcoes-menu:hover {
+.menu a:hover {
     color: #009236;
 }
 
@@ -55,11 +61,13 @@ body {
     color: #fff;
     border-radius: 8px;
     padding: 8px 16px;
-    width: 10%;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
 }
 
 .login:hover {
-    background-color: beige;
+    background-color: #fff;
     color: #009236;
-    border: 2px solid #009236;
+    border: 1px solid #009236;
 }

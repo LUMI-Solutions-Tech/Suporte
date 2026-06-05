@@ -1,170 +1,119 @@
-.cabecalho-cadastro {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 6px 12px;
-    border: none;
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
 }
 
 .container-cadastro {
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 10px 5px;
-    gap: 10%;
-    min-height: 80vh;
+    justify-content: space-between;
+    min-height: calc(100vh - 70px);
+    padding: 0;
+    gap: 0;
+    box-sizing: border-box;
+    background-color: #ffffff;
 }
 
 .img-login {
     display: block;
-    width: 34%;
-    height: auto;
+    width: 50%;
+    height: calc(100vh - 70px);
+    object-fit: cover;
+    background-color: #e9ecef;
 }
 
 .inputsCadastro {
-    width: 30%;
+    width: 50%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px;
+    box-sizing: border-box;
+}
+
+.inputsCadastro > * {
+    width: 100%;
+    max-width: 420px;
 }
 
 .topo-login {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
+    align-items: flex-start;
+    margin-bottom: 30px;
 }
 
 .boasvindas-text {
     font-size: 24px;
-    margin-bottom: 10px;
-    font-weight: 600;
-}
-
-.toggle-botoes {
-    display: flex;
-    background-color: rgba(0, 146, 54, 0.43);
-    border-radius: 25px;
-    padding: 10px;
-    width: 60%;
-    justify-content: space-between;
-}
-
-.btn-toggle {
-    flex: 1;
-    border: none;
-    background: transparent;
-    padding: 12px 0;
-    border-radius: 20px;
-    cursor: pointer;
-    font-weight: 500;
-    font-size: 16px;
-}
-
-.btn-toggle.active {
-    background-color: #009236;
-    color: white;
-}
-
-.toggle-link a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: 600;
+    margin-bottom: 5px;
+    font-weight: 300;
+    color: #495057;
 }
 
 .title-cadastro {
-    font-size: 40px;
-    margin: 5px 0
+    font-size: 42px;
+    margin: 0 0 10px 0;
+    font-weight: 700;
+    color: #212529;
+    letter-spacing: -1px;
 }
 
 .text-cadastro {
-    color: #79747E;
-    margin-bottom: 40px;
+    color: #6c757d;
+    margin-bottom: 35px;
     font-size: 16px;
-}
-
-.cadastro-nome div,
-.cadastro-email div {
-    width: 100%;
-}
-
-.cadastro-nome,
-.cadastro-email {
-    display: flex;
-    gap: 20px;
 }
 
 .grupo-input {
     position: relative;
     width: 100%;
-    margin-bottom: 30px;
+    margin-bottom: 28px;
 }
 
 .grupo-input label {
     position: absolute;
-    top: -8px;
+    top: -10px;
     left: 12px;
-    background-color: #fff; /* mesma cor do fundo */
-    padding: 0 5px;
-    font-size: 16px;
-    color: #070707;
-}
-
-.text-input{
-    margin-bottom: 6px;
-    display: block;
+    background-color: #ffffff;
+    padding: 0 6px;
+    font-size: 14px;
+    color: #495057;
+    font-weight: 500;
 }
 
 .ipt_cadastro,
 .ipt_cadastroSenha {
-    border: 1px solid #79747E;
-    border-radius: 4px;
-    padding: 12px 16px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    padding: 16px;
     width: 100%;
     box-sizing: border-box;
-}
-
-.ipt_cadastro {
-    padding: 14px 12px;
-    border: 1px solid #79747E;
-    border-radius: 4px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    background-color: #fff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-login {
     width: 100%;
-    padding: 16px 16px;
+    padding: 16px;
     background-color: #009236;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     color: #fff;
     font-weight: 600;
-    transition: background-color 0.3s ease;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    margin-top: 10px;
+    box-shadow: 0 4px 12px rgba(0, 146, 54, 0.2);
 }  
 
 .btn-login:hover {
     background-color: #15a449;
     transform: translateY(-1px);
-}
-
-.msgCadastro{
-    text-align: center;
-}
-
-.msgLoginLink {
-    text-decoration: none;
-}
-
-span {
-    color: #009236;
-    font-weight: 600;
-}
-
-.msg-sucesso-cadastro{
-    text-align: center;
-}
-
-#msgSenha {
-    font-size: 14px;
-    margin-top: -20px;
-    margin-bottom: 20px;
-    color: #79747E;
+    box-shadow: 0 6px 16px rgba(0, 146, 54, 0.3);
 }

@@ -2,7 +2,7 @@
 position: relative;
 width: 90%;
 margin-right: 120px;
-margin-left: 70px;
+margin-left: 75px;
 margin-top: 30px;
 margin-bottom: -30px;
 border-radius: 16px;
@@ -65,8 +65,8 @@ margin-bottom: -220px;
     position: fixed;
     bottom: 50px;
     right: 50px;
-    width: 60px;
-    height: 60px;
+    width: 75px;
+    height: 75px;
     border-radius: 50%;
     background: #63B1BC;
     border: none;
@@ -77,8 +77,9 @@ margin-bottom: -220px;
     transition: transform 0.2s, background 0.2s;
     font-family: Arial, sans-serif;
     font-weight: 700;
-    font-size: 13px;
+    font-size: 15px;
     color: #1F2A44;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 #btn-bob:hover {
     background: #EFB661;
@@ -88,11 +89,12 @@ margin-bottom: -220px;
 /* ---------- MINICHAT ---------- */
 #minichat {
     position: fixed;
-    bottom: 115px;
+    bottom: 140px;
     right: 28px;
     width: 360px;
     height: 480px;
-    border-radius: 12px;
+    border-radius: 10px;
+    overflow: hidden;
     display: none;
     flex-direction: column;
     font-family: Arial, sans-serif;
@@ -231,7 +233,7 @@ margin-bottom: -220px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: calc(100vh - 200px);
+    height: calc(100vh - 250px);
     padding: 60px 20px;
     gap: 12px;
     color: #000000;
